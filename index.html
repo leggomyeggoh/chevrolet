@@ -155,6 +155,19 @@ $ cd chevrolet
         <p class="muted">Have questions or fixes? Open an issue or start a discussion on GitHub.</p>
       </article>
     </section>
+
+    <section id="pdfs" class="grid">
+      <article class="card card--half">
+        <h3>Service Info PDFs</h3>
+        <p class="muted">Auto‑listed from <code class="inline">Chevrolet-service-info-pdf/</code> on the <code class="inline">master</code> branch.</p>
+        <ul id="pdf-service"><em>Scanning…</em></ul>
+      </article>
+      <article class="card card--half">
+        <h3>Brochure PDFs</h3>
+        <p class="muted">Auto‑listed from <code class="inline">Chevrolet-brochure-pdf/</code> on the <code class="inline">master</code> branch.</p>
+        <ul id="pdf-brochures"><em>Scanning…</em></ul>
+      </article>
+    </section>
   </main>
 
   <footer>
@@ -187,6 +200,29 @@ $ cd chevrolet
         document.getElementById('stats').textContent = 'Could not load repo stats.';
       }
     })();
+      // --- List PDFs from two folders using GitHub Contents API ---
+    async function listPdfs(folder, targetId){
+      const target = document.getElementById(targetId);
+      try{
+        const url = `https://api.github.com/repos/leggomyeggoh/chevrolet/contents/${folder}?ref=master`;
+        const res = await fetch(url);
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const items = await res.json();
+        const pdfs = items.filter(it => (it.type === 'file') && it.name.toLowerCase().endsWith('.pdf'));
+        if(!pdfs.length){ target.innerHTML = '<li class="muted">No PDFs found.</li>'; return; }
+        target.innerHTML = pdfs
+          .sort((a,b)=> a.name.localeCompare(b.name, undefined, {numeric:true,sensitivity:'base'}))
+          .map(it => {
+            // Prefer site-relative path so it works on GitHub Pages domain
+            const href = `${folder}/${encodeURIComponent(it.name)}`;
+            return `<li><a href="${href}" target="_blank" rel="noopener">${it.name}</a></li>`;
+          }).join('');
+      }catch(err){
+        target.innerHTML = `<li class="muted">Could not load list. ${err.message}</li>`;
+      }
+    }
+    listPdfs('Chevrolet-service-info-pdf','pdf-service');
+    listPdfs('Chevrolet-brochure-pdf','pdf-brochures');
   </script>
 </body>
 </html>
