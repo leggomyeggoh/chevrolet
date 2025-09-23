@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chevrolet</title>
+  <meta name="description" content="Project hub for the Chevrolet" />
+  <meta name="theme-color" content="#0f172a">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chevrolet" />
+  <meta property="og:description" content="Project hub for the Chevrolet" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-image.png" />
+  <style>
+    :root{
+      --bg:#0b1020;          /* page background */
+      --panel:#0f172a;       /* card & header background */
+      --text:#e5e7eb;        /* main text */
+      --muted:#94a3b8;       /* secondary text */
+      --accent:#22d3ee;      /* cyan */
+      --accent-2:#a78bfa;    /* purple */
+      --ring: 0 0 0 3px rgba(34,211,238,.25);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:radial-gradient(1100px 700px at 85% -10%, #1e293b, transparent), var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    a:focus{outline:none; box-shadow:var(--ring); border-radius:.5rem}
+    .container{max-width:1100px; margin:0 auto; padding:0 1rem}
+    header{
+      position:sticky; top:0; z-index:10; background:rgba(15,23,42,.85); backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; gap:.75rem; align-items:center}
+    .brand .dot{width:.75rem; height:.75rem; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 30px rgba(34,211,238,.35)}
+    .brand h1{margin:0; font-size:1rem; letter-spacing:.02em; color:#f1f5f9}
+    .links{display:flex; gap:1rem}
+    .links a{color:var(--muted)}
+    .links a:hover{color:var(--text)}
+
+    .hero{padding:6rem 0 3rem}
+    .title{font-size:clamp(2rem,6vw,3.5rem); margin:0 0 .5rem; letter-spacing:.01em}
+    .subtitle{color:var(--muted); max-width:60ch}
+
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; margin:2rem 0 4rem}
+    .card{grid-column: span 12; background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.75)); border:1px solid rgba(148,163,184,.16); border-radius:var(--radius); padding:1rem; box-shadow: 0 8px 30px rgba(2,6,23,.35)}
+    @media(min-width:720px){ .card--third{grid-column: span 4} .card--half{grid-column: span 6} }
+    .card h3{margin:.2rem 0 .4rem; font-size:1.1rem}
+    .muted{color:var(--muted)}
+    .row{display:flex; align-items:center; gap:.75rem; flex-wrap:wrap}
+    .badge{font-size:.8rem; color:#0b1020; background:linear-gradient(135deg,var(--accent),var(--accent-2)); padding:.25rem .5rem; border-radius:999px}
+    code.inline{background:#0b1224; border:1px solid rgba(148,163,184,.2); padding:.15rem .35rem; border-radius:.35rem}
+    pre{margin:0; overflow:auto; background:#0b1224; border:1px solid rgba(148,163,184,.2); border-radius:.65rem; padding:1rem}
+    footer{border-top:1px solid rgba(148,163,184,.15); padding:2rem 0; color:var(--muted)}
+
+    .gh-corner{position: absolute; top: 0; right: 0; border: 0}
+    .panel{position:relative}
+    .pulse{position:absolute; inset:auto auto -20px -20px; width:120px; height:120px; background: radial-gradient(closest-side, rgba(167,139,250,.18), transparent); filter:blur(8px); pointer-events:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="dot"></div>
+        <h1>Chevrolet</h1>
+      </div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#docs">Docs</a>
+        <a href="#download">Download</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero panel">
+      <svg class="gh-corner" width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+        <a href="https://github.com/leggomyeggoh/chevrolet" aria-label="View source on GitHub">
+          <path d="M0 0 L115 0 L115 115 L0 115 Z" fill="currentColor" style="color:#0f172a"/>
+          <path d="M128 109 c-15-9 -18-19 -12-40 6-21 3-31 -12-40 -14-9 -20-7 -23 2 -3 8 -5 7 -5 -3 -1 -16 17-24 33-14 17 11 26 45 18 70 -6 19 -4 24 11 24 12 0 17-5 14-10 -3-6 1-7 10-4 11 4 14 2 10-9 -6-16 19-44 33-36 6 4 6 9 0 13 -6 3 -8 12 -4 19 8 13 -6 36 -27 45 -6 2 -26 -5 -46 -17z" fill="#22d3ee"/>
+        </a>
+      </svg>
+      <h2 class="title">Classic steel. Clean code.</h2>
+      <p class="subtitle">This is the project homepage for <span class="badge">leggomyeggoh/chevrolet</span>. It’s a lightweight, fast-loading landing page you can ship on GitHub Pages. Swap in your own copy, links, and images.</p>
+      <div class="pulse" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="grid">
+      <article class="card card--half">
+        <h3>About the Project</h3>
+        <p class="muted">Use this space to describe what the repo does—restoration docs, CAD, wiring diagrams, logbooks, whatever you’re wrenching on. Keep it tight; link out for details.</p>
+        <ul>
+          <li>Branch: <code class="inline">master</code></li>
+          <li>Repo: <a href="https://github.com/leggomyeggoh/chevrolet">github.com/leggomyeggoh/chevrolet</a></li>
+        </ul>
+      </article>
+      <article class="card card--half" id="repo-stats">
+        <h3>Live Repo Stats</h3>
+        <p class="muted">Auto-fetched from GitHub API on page load.</p>
+        <div id="stats"><em>Loading…</em></div>
+      </article>
+    </section>
+
+    <section id="docs" class="grid">
+      <article class="card card--third">
+        <h3>Docs</h3>
+        <p class="muted">Put build notes, service manuals, or specs in a <code class="inline">/docs</code> folder and link them here. GitHub Pages can serve that folder directly.</p>
+        <ul>
+          <li><a href="docs/">Open /docs</a> (if present)</li>
+          <li><a href="#">Wiring &amp; Diagrams</a></li>
+          <li><a href="#">Chassis &amp; Suspension</a></li>
+        </ul>
+      </article>
+      <article class="card card--third">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="https://github.com/leggomyeggoh/chevrolet/tree/master">Browse master branch</a></li>
+          <li><a href="https://github.com/leggomyeggoh/chevrolet/issues">Issues</a></li>
+          <li><a href="https://github.com/leggomyeggoh/chevrolet/actions">Actions</a></li>
+          <li><a href="https://github.com/leggomyeggoh">Profile</a></li>
+        </ul>
+      </article>
+      <article class="card card--third" id="download">
+        <h3>Download</h3>
+        <p class="muted">Grab the code in one click.</p>
+        <div class="row">
+          <a class="badge" href="https://github.com/leggomyeggoh/chevrolet/archive/refs/heads/master.zip">Download .zip</a>
+          <code class="inline">git clone https://github.com/leggomyeggoh/chevrolet.git</code>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Local Dev</h3>
+<pre><code># clone and serve locally
+$ git clone https://github.com/leggomyeggoh/chevrolet.git
+$ cd chevrolet
+# open index.html in a browser (no build step needed)
+</code></pre>
+      </article>
+    </section>
+
+    <section id="contact" class="grid">
+      <article class="card">
+        <h3>Contact</h3>
+        <p class="muted">Have questions or fixes? Open an issue or start a discussion on GitHub.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> leggomyeggoh · Built with vanilla HTML/CSS. Deployed on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fetch GitHub repo stats
+    (async () => {
+      try {
+        const r = await fetch('https://api.github.com/repos/leggomyeggoh/chevrolet');
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const d = await r.json();
+        const fmt = (n)=> Intl.NumberFormat().format(n);
+        const updated = new Date(d.pushed_at).toLocaleString();
+        document.getElementById('stats').innerHTML = `
+          <ul>
+            <li>⭐ Stars: ${fmt(d.stargazers_count)}</li>
+            <li>🍴 Forks: ${fmt(d.forks_count)}</li>
+            <li>🧩 Open issues: ${fmt(d.open_issues_count)}</li>
+            <li>📦 Default branch: <code class="inline">${d.default_branch}</code></li>
+            <li>⏱️ Last push: ${updated}</li>
+          </ul>`;
+      } catch(e){
+        document.getElementById('stats').textContent = 'Could not load repo stats.';
+      }
+    })();
+  </script>
+</body>
+</html>
